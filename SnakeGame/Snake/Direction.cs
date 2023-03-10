@@ -12,7 +12,13 @@ namespace SnakeGame.Snake
         UP, 
         DOWN, 
         LEFT, 
-        RIGHT
+        RIGHT,
+        VERTICAL,
+        HORIZONTAL,
+        LEFTUP,
+        RIGHTUP,
+        LEFTDOWN,
+        RIGHTDOWN
     }
 
     /// <summary>

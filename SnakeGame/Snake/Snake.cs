@@ -16,14 +16,21 @@ namespace SnakeGame.Snake
             _snake = new List<Segment>();
 
             _snake.Add(new HeadSnake(60,60,15,Direction.UP));
-            
-            _snake.Add(new SegmentSnake(
-                        Head.X - Head.Radius * 2,
-                        Head.Y,
-                        Head.Radius,
-                        Color.LawnGreen
 
-                        ));
+            _snake.Add(new SegmentSnake(60, 90, 15, Direction.VERTICAL));
+            _snake.Add(new SegmentSnake(60, 120, 15, Direction.RIGHTUP));
+            _snake.Add(new SegmentSnake(90, 120, 15, Direction.LEFTDOWN));
+
+            _snake.Add(new TailSnake(90, 150, 15, Direction.DOWN));
+            
+            ////Старая версия
+            //_snake.Add(new SegmentSnake(
+            //            Head.X - Head.Radius * 2,
+            //            Head.Y,
+            //            Head.Radius,
+            //            Color.LawnGreen
+
+            //            ));
         }
 
         public HeadSnake Head
@@ -36,6 +43,7 @@ namespace SnakeGame.Snake
 
         public void Draw(Graphics graphics)
         {
+            
             foreach (var item in _snake) 
             { 
                 if(item is HeadSnake) 
@@ -46,10 +54,14 @@ namespace SnakeGame.Snake
                 { 
                     ((SegmentSnake)item).Draw(graphics);
                 }
+                else if(item is TailSnake) 
+                {
+                    ((TailSnake)item).Draw(graphics);
+                }
             }
         }
 
-
+        
 
     }
 }
