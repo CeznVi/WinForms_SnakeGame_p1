@@ -93,7 +93,7 @@
             // 
             // timer_updSnake
             // 
-            this.timer_updSnake.Interval = 500;
+            this.timer_updSnake.Interval = 1000;
             this.timer_updSnake.Tick += new System.EventHandler(this.timer_updSnake_Tick);
             // 
             // MainForm

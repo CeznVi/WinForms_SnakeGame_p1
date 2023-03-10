@@ -15,10 +15,14 @@ namespace SnakeGame.Snake
         RIGHT,
         VERTICAL,
         HORIZONTAL,
-        LEFTUP,
-        RIGHTUP,
-        LEFTDOWN,
-        RIGHTDOWN,
+        RD,
+        UL,
+        RU,
+        DL,
+        UR,
+        LD,
+        LU,
+        DR,
         NULL
     }
 

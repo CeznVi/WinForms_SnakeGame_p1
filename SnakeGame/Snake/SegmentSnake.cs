@@ -75,17 +75,22 @@ namespace SnakeGame.Snake
                 case Direction.VERTICAL:
                     bitmap = ImageAction.Rotate(bitmap, 90);
                     break;
-                case Direction.RIGHTUP:
-                    bitmap = ImageAction.Rotate(bitmap, 90);
+
+                case Direction.RD:
+                case Direction.UL:
+                    bitmap = ImageAction.Rotate(bitmap, 270);
                     break;
-                case Direction.LEFTUP:
+                case Direction.RU:
+                case Direction.DL:
                     bitmap = ImageAction.Rotate(bitmap, 0);
                     break;
-                case Direction.RIGHTDOWN:
-                    bitmap = ImageAction.Rotate(bitmap, 180);
+                case Direction.LU:
+                case Direction.DR:
+                    bitmap = ImageAction.Rotate(bitmap, 90);
                     break;
-                case Direction.LEFTDOWN:
-                    bitmap = ImageAction.Rotate(bitmap, 270);
+                case Direction.UR:
+                case Direction.LD:
+                    bitmap = ImageAction.Rotate(bitmap, 180);
                     break;
             }
             graphics.DrawImage(bitmap, new Rectangle(this.X - Radius, this.Y - Radius, this.Radius * 2, this.Radius * 2));

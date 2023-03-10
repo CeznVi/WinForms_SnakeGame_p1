@@ -37,16 +37,16 @@ namespace SnakeGame.Snake
             switch (CurrentDirection)
             {
                 case Direction.UP:
-                    bitmap = ImageAction.Rotate(bitmap, 180);
-                    break;
-                case Direction.DOWN:
                     bitmap = ImageAction.Rotate(bitmap, 0);
                     break;
+                case Direction.DOWN:
+                    bitmap = ImageAction.Rotate(bitmap, 180);
+                    break;
                 case Direction.LEFT:
-                    bitmap = ImageAction.Rotate(bitmap, 90);
+                    bitmap = ImageAction.Rotate(bitmap, 270);
                     break;
                 case Direction.RIGHT:
-                    bitmap = ImageAction.Rotate(bitmap, 270);
+                    bitmap = ImageAction.Rotate(bitmap, 90);
                     break;
             }
             graphics.DrawImage(bitmap, new Rectangle(this.X - Radius, this.Y - Radius, this.Radius * 2, this.Radius * 2));
