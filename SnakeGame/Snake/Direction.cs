@@ -25,7 +25,7 @@ namespace SnakeGame.Snake
             if(dir.GetType() == typeof(Direction))
                 return true;
             else
-            return false;
+                return false;
         }
     }
 }

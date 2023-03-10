@@ -22,7 +22,6 @@ namespace SnakeGame.Snake
                 this.Radius *2,
                 this.Radius*2
                 );
-            //throw new NotImplementedException();
         }
     }
 }

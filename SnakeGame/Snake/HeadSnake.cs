@@ -16,9 +16,9 @@ namespace SnakeGame.Snake
             get { return _direction; }
 
             private set 
-            { 
-                ///Validation!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                _direction = value; 
+            {
+                if(DirectionOperation.Check(value))
+                    _direction = value;
             }
         }
 
@@ -49,8 +49,6 @@ namespace SnakeGame.Snake
                     bitmap = RotateImage(bitmap, 270);
                     break;
             }
-
-
             graphics.DrawImage(bitmap,new Rectangle(this.X - Radius, this.Y - Radius, this.Radius *2, this.Radius*2));
         
         }
@@ -68,7 +66,6 @@ namespace SnakeGame.Snake
             gdi.Dispose();
 
             return rotatedImage;
-            
         }
     }
 }

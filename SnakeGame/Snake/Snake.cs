@@ -15,7 +15,7 @@ namespace SnakeGame.Snake
         {
             _snake = new List<Segment>();
 
-            _snake.Add(new HeadSnake(60,60,15,Direction.RIGHT));
+            _snake.Add(new HeadSnake(60,60,15,Direction.UP));
             
             _snake.Add(new SegmentSnake(
                         Head.X - Head.Radius * 2,
