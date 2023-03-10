@@ -51,6 +51,12 @@ namespace SnakeGame.Snake
             if (CurrentDirection == Direction.HORIZONTAL
                 || CurrentDirection == Direction.VERTICAL)
                 bitmap = new Bitmap(GameResource.body);
+            else if(CurrentDirection == Direction.LEFT
+                    || CurrentDirection == Direction.RIGHT)
+                bitmap = new Bitmap(GameResource.body);
+            else if (CurrentDirection == Direction.UP
+                    || CurrentDirection == Direction.DOWN)
+                bitmap = new Bitmap(GameResource.body);
             else
                 bitmap = new Bitmap(GameResource.snake_angle);
 
@@ -58,9 +64,14 @@ namespace SnakeGame.Snake
 
             switch (CurrentDirection)
             {
+
+                case Direction.RIGHT:
+                case Direction.LEFT:
                 case Direction.HORIZONTAL:
                     bitmap = ImageAction.Rotate(bitmap, 0);
                     break;
+                case Direction.UP:
+                case Direction.DOWN:
                 case Direction.VERTICAL:
                     bitmap = ImageAction.Rotate(bitmap, 90);
                     break;

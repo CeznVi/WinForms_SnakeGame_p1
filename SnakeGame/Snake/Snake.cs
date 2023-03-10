@@ -19,10 +19,10 @@ namespace SnakeGame.Snake
             _snake.Add(new HeadSnake(30,500,15,Direction.UP));
 
             _snake.Add(new SegmentSnake(30, 530, 15, Direction.VERTICAL));
-            //_snake.Add(new SegmentSnake(30, 550, 15, Direction.RIGHTUP));
-            //_snake.Add(new SegmentSnake(60, 550, 15, Direction.LEFTDOWN));
+            _snake.Add(new SegmentSnake(30, 550, 15, Direction.RIGHTUP));
+            _snake.Add(new SegmentSnake(60, 550, 15, Direction.LEFTDOWN));
 
-           // _snake.Add(new TailSnake(60, 580, 15, Direction.DOWN));
+            _snake.Add(new TailSnake(60, 580, 15, Direction.DOWN));
             
         }
 
@@ -57,18 +57,24 @@ namespace SnakeGame.Snake
         public void Move()
         {
             int x = 0, y = 0;
+            int xlast = 0, ylast = 0;
 
             Direction currDir = Direction.NULL;
             Direction lastDir = Direction.NULL;
 
             foreach(var item in _snake) 
             {
-                
-                if(item is HeadSnake) 
+                currDir = item.CurrentDirection;
+                x = item.X;
+                y = item.Y;
+
+                if (item is HeadSnake) 
                 {
-                    currDir = item.CurrentDirection;
-                    
-                    if(currDir == Direction.UP) 
+                     
+                    xlast = item.X;
+                    ylast = item.Y;
+
+                    if (currDir == Direction.UP) 
                         item.Y -= item.Radius * 2;
                     else if (currDir == Direction.DOWN)
                         item.Y +=  item.Radius * 2;
@@ -77,18 +83,19 @@ namespace SnakeGame.Snake
                     else if (currDir == Direction.RIGHT)
                         item.X -= item.Radius * 2;
                 }
-                else
+                else if(item is SegmentSnake)
                 {
+
                     item.CurrentDirection = lastDir;
-                    item.X = x;
-                    item.Y = y;
+
+                    item.X = xlast;
+                    item.Y = ylast;
+
                 }
 
-
-
-                lastDir = item.CurrentDirection;
-                x = item.X;
-                y = item.Y;
+                xlast = x;
+                ylast = y;
+                lastDir = currDir;
 
             }
 
