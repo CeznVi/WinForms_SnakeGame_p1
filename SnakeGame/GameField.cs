@@ -32,7 +32,7 @@ namespace SnakeGame
         public GameField()
         {
             _gameFieldControl = new PictureBox();
-            _gameFieldControl.BackColor = Color.Black;
+            _gameFieldControl.BackColor = Color.LightGray;
             _gameFieldControl.Dock = DockStyle.Fill;
             _gameFieldControl.Paint += _gameFieldControl_Paint;
 
@@ -42,8 +42,14 @@ namespace SnakeGame
         private void _gameFieldControl_Paint(object sender, PaintEventArgs e)
         {
             _snake.Draw(e.Graphics);
+        }
 
+        public void Update() 
+        {
+            _snake.Move();
+            _gameFieldControl.Refresh();
 
         }
+
     }
 }

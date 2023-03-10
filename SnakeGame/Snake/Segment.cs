@@ -11,6 +11,7 @@ namespace SnakeGame.Snake
     {
         private int _x;
         private int _y;
+        private Direction _direction;
 
         public Color Color;
         private int _radius;
@@ -36,15 +37,30 @@ namespace SnakeGame.Snake
             Radius = 15;
             X = 15;
             Y = 15;
-
+            CurrentDirection = Direction.UP;
         }
 
-        public Segment(int x, int y, int radius)
+
+
+        public Direction CurrentDirection
+        {
+            get { return _direction; }
+
+            set
+            {
+                if (DirectionOperation.Check(value))
+                    _direction = value;
+            }
+        }
+
+        public Segment(int x, int y, int radius, Direction dir)
         {
             X = x;
             Y = y;
             Radius = radius;
+            CurrentDirection = dir;
         }
+
         public override string ToString() 
         {
             return $"X: {X}; Y: {Y}; Radius: {Radius}.";

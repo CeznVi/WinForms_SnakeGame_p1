@@ -25,22 +25,22 @@ namespace SnakeGame.Snake
         //        );
         //}
 
-        private Direction _direction;
+        //private Direction _direction;
 
-        public Direction CurrentDirection
+        //public Direction CurrentDirection
+        //{
+        //    get { return _direction; }
+
+        //    private set
+        //    {
+        //        if (DirectionOperation.Check(value))
+        //            _direction = value;
+        //    }
+        //}
+
+        public SegmentSnake(int x, int y, int radius, Direction direction) : base(x, y, radius, direction)
         {
-            get { return _direction; }
-
-            private set
-            {
-                if (DirectionOperation.Check(value))
-                    _direction = value;
-            }
-        }
-
-        public SegmentSnake(int x, int y, int radius, Direction direction) : base(x, y, radius)
-        {
-            CurrentDirection = direction;
+            //CurrentDirection = direction;
         }
 
         public void Draw(Graphics graphics)

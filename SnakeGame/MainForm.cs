@@ -19,6 +19,7 @@ namespace SnakeGame
             InitializeComponent();
             _gameField = new GameField();
             panelMainWindow.Controls.Add(_gameField.gameFieldControl);
+            timer_updSnake.Enabled = true;
         }
 
 
@@ -31,6 +32,12 @@ namespace SnakeGame
         private void MainForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer_updSnake_Tick(object sender, EventArgs e)
+        {
+            _gameField.Update();
+            
         }
     }
 }

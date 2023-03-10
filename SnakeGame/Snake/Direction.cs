@@ -18,7 +18,16 @@ namespace SnakeGame.Snake
         LEFTUP,
         RIGHTUP,
         LEFTDOWN,
-        RIGHTDOWN
+        RIGHTDOWN,
+        NULL
+    }
+
+    enum ControlDirection
+    {
+        UP,
+        DOWN,
+        LEFT,
+        RIGHT
     }
 
     /// <summary>
