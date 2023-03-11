@@ -10,6 +10,7 @@ namespace SnakeGame.Snake
 {
     class Snake : ISegmentBehavior
     {
+
         List<Segment> _snake;
         
         public Snake()
@@ -17,13 +18,10 @@ namespace SnakeGame.Snake
             _snake = new List<Segment>();
 
             _snake.Add(new HeadSnake(30,500,15,Direction.UP));
-
             _snake.Add(new SegmentSnake(30, 530, 15, Direction.VERTICAL));
             _snake.Add(new SegmentSnake(30, 560, 15, Direction.LU));
             _snake.Add(new SegmentSnake(60, 560, 15, Direction.UL));
             _snake.Add(new TailSnake(60, 590, 15, Direction.UP));
-
-
         }
 
         public HeadSnake Head
@@ -64,6 +62,7 @@ namespace SnakeGame.Snake
 
             foreach(var item in _snake) 
             {
+
                 currDir = item.CurrentDirection;
                 x = item.X;
                 y = item.Y;
@@ -82,6 +81,17 @@ namespace SnakeGame.Snake
                         item.X += item.Radius * 2;
                     else if (currDir == Direction.RIGHT)
                         item.X -= item.Radius * 2;
+
+                    
+                    if(item.Y <= 0)
+                        item.Y = 585;
+                    else if (item.Y >= 585)
+                        item.Y = 0;
+                    else if (item.X >= 953)
+                        item.X = 0;
+                    else if (item.X <= 0)
+                        item.X = 953;
+
                 }
                 else if(item is SegmentSnake)
                 {
@@ -101,23 +111,26 @@ namespace SnakeGame.Snake
                         item.CurrentDirection = Direction.LEFT;
                     else if (lastDir == Direction.RIGHT)
                         item.CurrentDirection = Direction.RIGHT;
-                    
+                    ///left
                     else if (lastDir == Direction.UL)
                         item.CurrentDirection = Direction.LEFT;
+                    else if (lastDir == Direction.DL)
+                        item.CurrentDirection = Direction.LEFT;
+                    ////right
                     else if (lastDir == Direction.UR)
                         item.CurrentDirection = Direction.RIGHT;
-
-
+                    else if (lastDir == Direction.DR)
+                        item.CurrentDirection = Direction.RIGHT;
+                    ////up
                     else if (lastDir == Direction.LU)
                         item.CurrentDirection = Direction.UP;
-
-
-                    ///////ДОДЕЛАТЬ
-
-                    //else if (lastDir == Direction.RIGHTUP)
-                    //    item.CurrentDirection = Direction.RIGHT;
-
-                    //item.CurrentDirection = lastDir;
+                    else if (lastDir == Direction.RU)
+                        item.CurrentDirection = Direction.UP;
+                    ///down
+                    else if (lastDir == Direction.RD)
+                        item.CurrentDirection = Direction.DOWN;
+                    else if (lastDir == Direction.LD)
+                        item.CurrentDirection = Direction.DOWN;
 
                     item.X = xlast;
                     item.Y = ylast;
